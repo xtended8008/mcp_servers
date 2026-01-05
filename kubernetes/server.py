@@ -1,7 +1,7 @@
 from mcp.server.fastmcp import FastMCP
 from kubernetes import client, config
 from kubernetes.client.rest import ApiException
-from typing import List, Optional, Dict, Any
+from typing import Optional
 import datetime
 import json
 import subprocess
@@ -31,7 +31,7 @@ def _format_age(creation_timestamp) -> str:
             return f"{delta.seconds // 60}m"
         else:
             return f"{delta.seconds}s"
-    except:
+    except Exception:
         return "Unknown"
 
 # --- Core Tools ---
@@ -115,7 +115,7 @@ def get_pod_logs(pod_name: str, namespace: str = "default", container: Optional[
             kwargs["container"] = container
         
         logs = v1.read_namespaced_pod_log(**kwargs)
-        return logs
+        return str(logs)
     except ApiException as e:
         return f"Kubernetes API Error: {e.reason} ({e.status})"
     except Exception as e:
