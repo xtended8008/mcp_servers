@@ -26,6 +26,20 @@ Located in the `kubernetes/` directory, this server provides comprehensive Kuber
 
 For detailed setup instructions, see [kubernetes/README.md](kubernetes/README.md).
 
+### GitHub Actions MCP Server
+
+Located in the `github/` directory, this server enables management of GitHub Actions workflows.
+
+**Features:**
+- **Workflows**: List and trigger workflows
+- **Runs**: Inspect workflow runs and status
+
+**Setup:**
+- Requires Python 3.10+ and a GitHub Personal Access Token
+- Install dependencies: `pip install -r github/requirements.txt`
+
+For detailed setup instructions, see [github/README.md](github/README.md).
+
 ## Contributing
 
 This repository welcomes contributions of new MCP servers for various domains:

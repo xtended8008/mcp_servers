@@ -10,9 +10,12 @@ jobs:
   validate:
     name: Validate and Lint
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        directory: [kubernetes, github]
     defaults:
       run:
-        working-directory: ./kubernetes
+        working-directory: ./${{ matrix.directory }}
 
     steps:
     - uses: actions/checkout@v4
